@@ -1,5 +1,6 @@
 package com.testCases;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
@@ -17,6 +18,7 @@ public class TC_LoginTest_001 extends BaseClass {
 			logintest.getuserId().sendKeys(userid);
 			logintest.getpassword().sendKeys(password);
 			logintest.getloginbtn().click();
+			logger.info("-- Login completed here-- ");
 			Thread.sleep(2000);
 
 		} catch(Exception e) {

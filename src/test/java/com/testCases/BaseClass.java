@@ -2,6 +2,8 @@ package com.testCases;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
@@ -13,6 +15,7 @@ public class BaseClass {
 	public String userid = "mngr255784";
 	public String password = "esYnezY";
 	public static WebDriver driver=null;
+	public static Logger logger;
 	
 	
 	@BeforeClass
@@ -22,6 +25,9 @@ public class BaseClass {
 		System.setProperty("webdriver.gecko.driver", "/Users/sneharoy/eclipse-workspace/OnlineStore/geckodriver");
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		logger = Logger.getLogger("ebanking");
+		PropertyConfigurator.configure("log4j.properties");
 		
 	}
 
