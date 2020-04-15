@@ -9,11 +9,14 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import com.Utilities.ReadConfig;
+
 public class BaseClass {
 	
-	public String URL = "http://demo.guru99.com/v4/index.php";
-	public String userid = "mngr255784";
-	public String password = "esYnezY";
+	ReadConfig readconfig = new ReadConfig();
+	public String URL = readconfig.getApplicationURL();
+	public String userid = readconfig.getUserId();
+	public String password = readconfig.getPassword();
 	public static WebDriver driver=null;
 	public static Logger logger;
 	
@@ -22,7 +25,7 @@ public class BaseClass {
 	public void setup() {
 		
 //		System.setProperty("webdriver.gecko.driver", "/Users/sneharoy/eclipse-workspace/InetBankingV1/Drivers/geckodriver");
-		System.setProperty("webdriver.gecko.driver", "/Users/sneharoy/eclipse-workspace/OnlineStore/geckodriver");
+		System.setProperty("webdriver.gecko.driver", readconfig.getFirefoxPath());
 		driver = new FirefoxDriver();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
