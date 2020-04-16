@@ -28,5 +28,13 @@ public class LoginPage {
 	public WebElement getloginbtn() {
 		return loginbtn;
 	}
+	
+	
+	// Logout button
+	@FindBy(xpath="/html/body/div[3]/div/ul/li[15]/a")
+	private WebElement logoutbtn;
+	public WebElement getlogoutbtn() {
+		return logoutbtn;
+	}
 
 }

@@ -32,7 +32,7 @@ public class Reporting extends TestListenerAdapter
 		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());//time stamp
 		String repName="Test-Report-"+timeStamp+".html";
 		
-		htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+ "/test-output/"+repName);//specify location of the report
+		htmlReporter=new ExtentHtmlReporter(System.getProperty("user.dir")+ "/ExtntReports/"+repName);//specify location of the report
 		htmlReporter.loadXMLConfig(System.getProperty("user.dir")+ "/extent-config.xml");
 		
 		extent=new ExtentReports();
@@ -66,7 +66,7 @@ public class Reporting extends TestListenerAdapter
 		if(f.exists())
 		{
 		try {
-			logger.fail("Screenshot is below:" + logger.addScreenCaptureFromPath(screenshotPath));
+			logger.fail("Screenshot is below:--  " + logger.addScreenCaptureFromPath(screenshotPath));
 			} 
 		catch (IOException e) 
 				{
